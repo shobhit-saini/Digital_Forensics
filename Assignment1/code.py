@@ -9,18 +9,18 @@ import cv2
 import numpy as np
 import pandas as pd
 """""""""""""""""""Reading of image"""""""""""""""""""
-img = cv2.imread("D:\IIT_BBS_CLG_WORK\IITBBS_LAB_WORK\DF2_lab\white.jpg")
+img = cv2.imread("D:\IIT_BBS_CLG_WORK\IITBBS_LAB_WORK\DF2_lab\Assignment1\white.jpg")
 """""""""""""""""""converting of image into gray image"""""""""""""
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+original_gray = gray
+print("Image_matrix:")
 print(gray)
-cv2.imshow('a', gray)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+
 """""""""""""""""""""Input"""""""""""""""""""""
 val = input("Enter your watermark text: ") 
 """""""""""""""Converting string into binary"""""""""""""""""""""
 converted_binary = ''.join(format(ord(i), 'b') for i in val)
-print("Watermark image:")
+print("Watermark Text in binary:")
 print(converted_binary)
 length = len(converted_binary)
 num_rows, num_cols = img.shape[:2]
@@ -39,6 +39,7 @@ for x in range(length):
         i += 1
         j = 0
 result = ''
+watermark_gray = gray
 j= 0
 """""""""""""""""""Retrieving of watermark message""""""""""""" 
 for x in range(length):
@@ -86,3 +87,8 @@ def Peak_Signal_to_Noise_Ratio(aug1, aug2):
 b=Peak_Signal_to_Noise_Ratio(gray,noisy_image)
 print("psnr value:")
 print(b)
+cv2.imshow('Original_image', gray)
+cv2.imshow('Watermark_image', watermark_gray)
+cv2.imshow('Noisy_image', noisy_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
