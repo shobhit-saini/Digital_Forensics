@@ -49,8 +49,20 @@ for x in range(length):
     else:
         i += 1
         j = 0
+        
+def conversion_binary_into_ascii(aug1):
+    temp = ''
+    result = ''
+    for i in range(aug1.__len__()):
+        temp = temp + aug1[i]
+        if((i + 1) % 7 == 0):
+            result = result + chr(int(temp, 2))
+            temp = ''
+    return result
+
+result_ascii = conversion_binary_into_ascii(result)
 print("After retrieving watermark message:")
-print(result)
+print(result_ascii)
 """""""""""""""""""Function to add noise into the image"""""""""""""
 def noisy_adder_gaussian():
       row,col= gray.shape[:2]
@@ -89,6 +101,5 @@ print("psnr value:")
 print(b)
 cv2.imshow('Original_image', gray)
 cv2.imshow('Watermark_image', watermark_gray)
-cv2.imshow('Noisy_image', noisy_image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
