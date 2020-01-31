@@ -36,12 +36,13 @@ cv2.imshow("img1", img1)
 list_int = []
 for i in range(10):
     list_int.append(np.random.randint(0,256))
+
 for i in range(img.shape[0]):
     for j in range(img.shape[1]):
         if list_int.count(img[i][j][1]) > 0:
             if np.random.rand() > 0.5:
                 if j + 1 <img.shape[1] and j-1 > 0 and i+1 < img.shape[0] and i-1 > 0:
-                    img[i][j][1] = (int(img[i+1][j][1]) + int(img[i][j+1][1]) + int(img[i-1][j][1]) + int(img[i][j-1][1]))/4 + 100
+                    img[i][j][1] = (int(img[i+1][j][1]) + int(img[i][j+1][1]) + int(img[i-1][j][1]) + int(img[i][j-1][1]))/4
                 
 arr1 = np.zeros((256)) 
 img2 = np.ones((550, 368, 3), np.uint8)*255        
