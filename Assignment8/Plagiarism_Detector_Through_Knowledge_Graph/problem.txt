@@ -1,0 +1,18 @@
+Digital Forensics Lab-II
+Assignment 8 (100 points)
+Spring 2020 Similarity Index between two documents indicates the amount of similarity exists in the documents. 
+This is a popular tool used in the plagiarism software to detect the amount of text copied from other sources. 
+The objective of this assignment is to develop an algorithm based on Machine Learning and graph theory to detect the similarity index between two documents.
+The algorithm should take two different documents as inputs and process them to quantify the amount of text similarity in the documents and localize them in the documents. 
+Localization can be done by stating the position of the word and length of the match (in words).
+The output shall be given in terms of % of matching with respect to the total number of words in the documents. Usually single word matching is not considered as a plagiarism. 
+You need to provide an additional input (tolerance) to the system that will decide the number of consecutive words that must match in between the documents to consider 
+it as a true positive case. The tolerance value is an integer. Tolerance = 1 means the “single word matching” case and not considered as a plagiarism. 
+Overall matching index can be compute after finding out all true positive cases in the whole documents. Words before and after the full stop (.) 
+should not be grouped in a single true positive case, i.e. true positive cases must be bounded within a sentence. There are some assumptions and 
+key-points as given below:
+ Assume the documents are given in plain text format.
+ Assume there is no graphical object in the document.
+ Try to apply learning techniques instead of simply applying brute force searching for finding the true positive cases.
+ A few related papers are attached for your reference. Understand these algorithms and write your own algorithm.
+ Submission should include the source file, a documentation on the algorithm (2 pages), and a readme file to execute the code.
